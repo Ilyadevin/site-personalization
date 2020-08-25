@@ -8,5 +8,23 @@
         <div class="header">
             <h1>Игра "Угадай число"</h1>
         </div>
+        <form method="POST">
+            <textarea name="{{temporary_number}}" cols="40" rows="3"></textarea></p>
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Проверить"/>
+            <br>
+            <form method="get">
+            {% if temporary_number == numbers %}
+                <h2>Ура! Ты угадал!</h2>
+            {% elif temporary_number > numbers %}
+                <h2>Число - {{number}} больше загаданного </h2>
+            {% elif temporary_number < numbers %}
+                <h2> Число - {{ temporary_number }} меньше загаданного</h2>
+            {% else %}
+                <h2> Ошибка </h2>
+            {% endif %}
+                </form>
+    </form>
     </div>
 {% endblock %}
