@@ -7,5 +7,17 @@
     <div class="container">
         <div class="header"></div>
         <h2>Регистрация</h2>
+        <form action="handler.php">
+            <p><strong>Имя пользователя:</strong></p>
+                <input maxlength="10" size="40" name="login">
+            <p><strong>Пароль:</strong></p>
+                <input maxlength="10" size="40" name="password">
+            <p><strong>Подтвердите пароль:</strong></p>
+                <input maxlength="'10" size="'40" name="confirm">
+            {% if password == confirm %}
+                {{ pass }}
+            {% else %}
+                <p>Пароли не совпадают</p>
+            </form>
     </div>
 {% endblock %}
